@@ -7,6 +7,8 @@ int sensorE = A1;
 int sensorD = A0; 
 int valorE = 0;
 int valorD = 0;
+int vME = 9;
+int vMD = 10;
 const int resposta = A5;
 const int pulso = 8;
 
@@ -17,6 +19,8 @@ void setup() {
   pinMode(mEsquerda2, OUTPUT);
   pinMode(mDireita1, OUTPUT);
   pinMode(mDireita2, OUTPUT);
+  pinMode(vME, OUTPUT);
+  pinMode(vMD, OUTPUT);
   pinMode(pulso, OUTPUT);
   pinMode(resposta, INPUT);
 
@@ -38,21 +42,26 @@ void parar(){
 }
 
 void direita(){
-    digitalWrite(mEsquerda1, HIGH);
-    digitalWrite(mEsquerda2, LOW);
+    digitalWrite(mEsquerda1, LOW);
+    digitalWrite(mEsquerda2, HIGH);
     digitalWrite(mDireita1, HIGH);
-    digitalWrite(mDireita2, LOW);  
+    digitalWrite(mDireita2, HIGH);  
 }
 
 void esquerda(){
-    digitalWrite(mEsquerda1, LOW);
+    digitalWrite(mEsquerda1, HIGH);
     digitalWrite(mEsquerda2, HIGH);
-    digitalWrite(mDireita1, LOW);
-    digitalWrite(mDireita2, HIGH); 
+    digitalWrite(mDireita1, HIGH);
+    digitalWrite(mDireita2, LOW); 
 }
 
 
 void loop() {
+  analogWrite(vME, 120);
+  analogWrite(vMD, 120);
+  valorE = analogRead(sensorE);
+  valorD = analogRead(sensorD);
+  
   long duracao,distancia;
 
   digitalWrite(pulso, LOW);
@@ -69,14 +78,7 @@ void loop() {
   Serial.println();
 
   delay(100);
-  
-    analogWrite(9,90);
-    analogWrite(10,90);
-      
-    valorE = analogRead(sensorE);
-    valorD = analogRead(sensorD);
-
-
+    
    if(analogRead(sensorE)>150){
     direita();
   
@@ -98,7 +100,8 @@ void loop() {
    }
  
 }
-
 long calculoDistancia(long microsseconds){
   return microsseconds / 29 / 2;
 }
+
+
