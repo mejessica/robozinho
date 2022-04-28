@@ -7,6 +7,8 @@ int sensorE = A1;
 int sensorD = A0; 
 int valorE = 0;
 int valorD = 0;
+int vME = 9;
+int vMD = 10;
 
 void setup() {
   
@@ -15,6 +17,8 @@ void setup() {
   pinMode(mEsquerda2, OUTPUT);
   pinMode(mDireita1, OUTPUT);
   pinMode(mDireita2, OUTPUT);
+  pinMode(vME, OUTPUT);
+  pinMode(vMD, OUTPUT);
 
 }
 
@@ -48,10 +52,12 @@ void esquerda(){
 
 
 void loop() {
+
+  analogWrite(vME, 120);
+  analogWrite(vMD, 120);
+  valorE = analogRead(sensorE);
+  valorD = analogRead(sensorD);
   
-    analogWrite(9,90);
-    analogWrite(10,90);
-      
    valorE = analogRead(sensorE);
    valorD = analogRead(sensorD);
 
