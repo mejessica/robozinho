@@ -8,7 +8,7 @@ int sensorD = A0;
 int valorE = 0;
 int valorD = 0;
 const int resposta = A5;
-const int pulso = 7;
+const int pulso = 8;
 
 void setup() {
   
