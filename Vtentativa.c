@@ -66,13 +66,17 @@ void esquerda(){
 void velocE(){
     NvoltasE++;
     Serial.print(NvoltasE); 
+    Serial.println("Esquerda");
+   Serial.println();
     delay(500);
     
 }
 void velocD(){
    NvoltasD++;
    Serial.print(NvoltasD);
-   Serial.print("");
+   Serial.println("Direita");
+   Serial.println();
+   
    delay(500);
     
 }
@@ -102,12 +106,12 @@ void loop() {
   Serial.println("cm");
   Serial.println();
 
-   if(digitalRead(3)==1){
+   if(digitalRead(pinoSensorD)==LOW){
    velocD();
     
    }
    
-   if(digitalRead(11)==1){
+   if(digitalRead(pinoSensorE)==LOW){
     velocE();
    }
    
