@@ -2,5 +2,5 @@
 
 ## Aqui se encontram todos os códigos de tentativas 
 
-### Participei de um projeto cujo objetivo era programar um robô para seguir a linha e recolher lixo
+- Em 2022 fui bolsista de um projeto cujo objetio era ensianr programação atraves da robotica para alunos do fundamental de escolas publicas. Nós usamos a metodologia mão na massa e o projeto final era um carrinho que passava nas quadras recolhendo o lixo. 
 
